@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" updateCheck="false">
+
+    <diskStore path="java.io.tmpdir"/>
+
+	<!--	members 캐시이름 선언 
+			maxEntriesLocalHeap 최대 100개 Heap에 담을 수 있다.
+			maxEntriesLocalDisk 최대 1000개 diskStore에 저장할 수 있다.
+			
+	-->
+    <cache name="s_sample"
+           maxEntriesLocalHeap="100"
+           maxEntriesLocalDisk="1000"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+
+</ehcache>
